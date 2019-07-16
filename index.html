@@ -26,7 +26,7 @@
     >
       <div class="container">
         <a class="navbar-brand js-scroll-trigger" href="#page-top"
-          >Start Bootstrap.</a
+          >Spiel, just say what's on your mind...</a
         >
         <button
           class="navbar-toggler"
@@ -63,12 +63,20 @@
         <p class="lead">Create spiel here</p>
 
         <div>
-          <a href="#about">
+          <a href="#about"></a>
             <form action="/action_page.php">
-              <input type="text" name="fname" /><br />
-              <input type="submit" value="Submit" />
+              <div>
+                <textarea name="spieltext" id="spieltext"></textarea>
+              </div>
+              <div>
+                <label for="share_friends_only">
+                  <input type="checkbox" id="share_friends_only" /> Share with friends only
+                </label>
+              </div>
+              <div>
+                <button class="btn-secondary" type="submit">Submit</button>
+              </div>
             </form>
-          </a>
         </div>
       </div>
     </header>
