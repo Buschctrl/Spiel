@@ -16,6 +16,22 @@
 
     <!-- Custom styles for this template -->
     <link href="css/scrolling-nav.css" rel="stylesheet" />
+<style>
+#spielLiveWrapper {
+  padding-top: 50px;
+  font-size: -0.5rem;
+}
+#spielLive {
+  width: 210px;
+  height: 100%;
+}
+div.spiel-summary {
+  padding-top: 5px;
+  border-top: 1px gainsboro dotted;
+  font-size: -0.5rem;
+  width: 200px;
+}
+</style>
   </head>
 
   <body id="page-top">
@@ -57,6 +73,8 @@
       </div>
     </nav>
 
+  <table class="table table-hover">
+    <tr><td>
     <header class="bg-primary text-white ">
       <div class="container text-center">
         <h1>Spiel</h1>
@@ -80,6 +98,17 @@
         </div>
       </div>
     </header>
+    </td>
+    <td>
+      <div id="spielLiveWrapper">
+        Live Spiels:<br>
+        <div id="spielLive">
+
+        </div>
+      </div>
+    </td>
+    </tr>
+    </table>
 
     <section id="about">
       <div class="container">
@@ -163,5 +192,29 @@
 
     <!-- Custom JavaScript for this theme -->
     <script src="js/scrolling-nav.js"></script>
+    <script>
+      $(document).ready(function() {
+        window.setTimeout(updateLive, 1000);
+      });
+
+      function updateLive() {
+        let randomName = ['Fred', 'Sally', 'Wilma', 'Barney'];
+        let randomText = [
+          "Somebody join my spiel! I'm lonely!",
+          "Let's talk about platypuses!  I'm a big fan!",
+          "Does anyone know how to change a lightbulb?",
+          "What is the meaning of life?  Is it really all about Oreos?"
+        ];
+
+        let rName = Math.floor(Math.random()*randomName.length);
+        let rText = Math.floor(Math.random()*randomText.length);
+        let newSpiel = $("<div>").addClass("spiel-summary").html(
+          "<strong><i>"+randomName[rName]+" says:</i></strong><br>"+randomText[rText]
+        );
+        $("#spielLive").append(newSpiel).fadeIn();
+
+        window.setTimeout(updateLive, 5000);
+      }
+    </script>
   </body>
 </html>
